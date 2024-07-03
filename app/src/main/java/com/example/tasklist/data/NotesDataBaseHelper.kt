@@ -21,13 +21,7 @@ class NotesDataBaseHelper(context: Context) : SQLiteOpenHelper(
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTableQuery = """
-            CREATE TABLE $TABLE_NAME (
-                $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $COLUMN_TITLE TEXT,
-                $COLUMN_CONTENT TEXT
-            )
-        """
+        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY ,$COLUMN_TITLE TEXT,$COLUMN_CONTENT TEXT)"
         db?.execSQL(createTableQuery)
     }
 
@@ -65,5 +59,44 @@ class NotesDataBaseHelper(context: Context) : SQLiteOpenHelper(
         cursor.close()
         db.close()
         return noteList
+    }
+
+    fun updateNote (note:Note){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE , note.title)
+            put(COLUMN_CONTENT , note.content)
+        }
+        val whereClause = "$COLUMN_ID = ?"
+        val WhereArgs = arrayOf(note.id.toString())
+        db.update(TABLE_NAME, values,whereClause ,WhereArgs)
+        db.close()
+    }
+
+
+    fun getNoteById (noteID : Int) : Note{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $noteID"
+        val cursor = db.rawQuery(query,null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+        val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+        cursor.close()
+        db.close()
+        return Note (id,title,content)
+
+
+    }
+
+    fun deleteNote (noteId : Int) {
+        val db = writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val WhereArgs = arrayOf(noteId.toString())
+        db.delete(TABLE_NAME,whereClause,WhereArgs)
+        db.close()
+
     }
 }

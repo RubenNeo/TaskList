@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TaskList"
         tools:targetApi="31">
         <activity
+            android:name=".activities.update_activity"
+            android:exported="false" />
+        <activity
             android:name=".activities.addNotesActivity"
             android:exported="false" />
         <activity
