@@ -20,6 +20,8 @@ class addNotesActivity : AppCompatActivity() {
         binding = ActivityAddNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        db = NotesDataBaseHelper(this)
+
         binding.saveButton.setOnClickListener {
             val title = binding.tittleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
@@ -31,6 +33,4 @@ class addNotesActivity : AppCompatActivity() {
 
         }
     }
-
-
 }

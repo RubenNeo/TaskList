@@ -21,7 +21,7 @@ class NotesDataBaseHelper(context: Context) : SQLiteOpenHelper(
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY ,$COLUMN_TITLE TEXT,$COLUMN_CONTENT TEXT)"
+        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT ,$COLUMN_TITLE TEXT,$COLUMN_CONTENT TEXT)"
         db?.execSQL(createTableQuery)
     }
 
@@ -42,7 +42,7 @@ class NotesDataBaseHelper(context: Context) : SQLiteOpenHelper(
     }
 
     fun getAllNotes(): List<Note> {
-        val noteList = mutableListOf<Note>()
+        val noteListe = mutableListOf<Note>()
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
@@ -53,12 +53,12 @@ class NotesDataBaseHelper(context: Context) : SQLiteOpenHelper(
             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
 
             val note = Note(id, title, content)
-            noteList.add(note)
+            noteListe.add(note)
         }
 
         cursor.close()
         db.close()
-        return noteList
+        return noteListe
     }
 
     fun updateNote (note:Note){
