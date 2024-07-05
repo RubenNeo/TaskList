@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name ="Azul">#0263B9</color>
     <color name="Azul_cielo">#80E5F1</color>
+
+    <color name="editcolor">#92C7FBF2</color>
+
+
 </resources>

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasklist.adapter.NotesAdapter
 import com.example.tasklist.data.Note
+import com.example.tasklist.databinding.ActivityAddNotesBinding
 import com.example.tasklist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,16 +16,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db: NotesDataBaseHelper
     private lateinit var notesAdapter: NotesAdapter
 
+    var categoryID: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        categoryID = intent.getIntExtra("CATEGORY_ID", -1)
 
         db = NotesDataBaseHelper(this)
 
-        val noteList: MutableList<Note> = db.getAllNotes().toMutableList()
+        val noteList: MutableList<Note> = db.getAllNotesByCategory(categoryID).toMutableList()
         notesAdapter = NotesAdapter(noteList, this)
 
         //hacer el binding del enableSwipe
@@ -37,12 +40,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.addButton.setOnClickListener {
             val intent = Intent(this, addNotesActivity::class.java)
+            intent.putExtra("CATEGORY_ID", categoryID)
             startActivity(intent)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        notesAdapter.refreshData(db.getAllNotes())
+        notesAdapter.refreshData(db.getAllNotesByCategory(categoryID))
     }
 }

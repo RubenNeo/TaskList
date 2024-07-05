@@ -1,4 +1,4 @@
-package com.example.tasklist.activities
+package com.example.tasklist.adapter
 
 import NotesDataBaseHelper
 import android.content.Context
@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasklist.R
+import com.example.tasklist.update.update_activity
 import com.example.tasklist.data.Note
 import com.example.tasklist.databinding.NoteItemBinding
 
@@ -26,7 +27,7 @@ class NotesAdapter(private var notes: MutableList<Note>, context: Context) :
     private val db: NotesDataBaseHelper = NotesDataBaseHelper(context)
 
     class NoteViewHolder(
-        var binding: NoteItemBinding
+        private val binding: NoteItemBinding
 
     ) : RecyclerView.ViewHolder(binding.root) {
         val titleTextView: TextView = binding.tvTitle
@@ -138,8 +139,8 @@ class NotesAdapter(private var notes: MutableList<Note>, context: Context) :
 
             private val iconLeft: Drawable? = ContextCompat.getDrawable(recyclerView.context, R.drawable.ic_edit)
             private val iconRight: Drawable? = ContextCompat.getDrawable(recyclerView.context, R.drawable.ic_delete)
-            private val backgroundLeft: ColorDrawable = ColorDrawable(Color.BLUE)
-            private val backgroundRight: ColorDrawable = ColorDrawable(Color.GREEN)
+            private val backgroundLeft :ColorDrawable = ColorDrawable(Color.CYAN)
+            private val backgroundRight: ColorDrawable = ColorDrawable(Color.RED)
         }
 
         val itemTouchHelper = ItemTouchHelper(swipeHelper)
@@ -174,7 +175,7 @@ class NotesAdapter(private var notes: MutableList<Note>, context: Context) :
                     else -> false
                 }
             }
-            popupMenu.show() // Mostrar el menú emergente
+            popupMenu.show() // Mostar menu emergente
         }
     }
 }
