@@ -1,0 +1,262 @@
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false"
+    android:padding="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_gravity="center">
+
+    <!-- Primer CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:tag="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageview1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/bakground_home"
+                android:scaleType="centerCrop"/>
+
+
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/texttitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Segundo CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:tag="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/bathroom"
+                android:scaleType="centerCrop"/>
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/textViewTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bathroom"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tercer CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:tag="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/kitchen"
+                android:scaleType="centerCrop"/>
+
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/textViewTitle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kitchen"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Cuarto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:tag="4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/livingroom"
+                android:scaleType="centerCrop"/>
+
+
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/textViewTitle4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Living Room"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Quinto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:tag="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/yard"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"/>
+
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/textViewTitle5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Out of House"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Sexto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Cv6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:tag="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/towers"
+                android:scaleType="centerCrop"/>
+
+            <!-- TextView (Título) -->
+            <TextView
+                android:id="@+id/textViewTitle6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="shopping"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</GridLayout>

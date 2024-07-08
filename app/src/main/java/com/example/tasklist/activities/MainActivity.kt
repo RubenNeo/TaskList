@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tasklist.R
 import com.example.tasklist.adapter.NotesAdapter
 import com.example.tasklist.data.Note
 import com.example.tasklist.databinding.ActivityAddNotesBinding
@@ -24,6 +25,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         categoryID = intent.getIntExtra("CATEGORY_ID", -1)
+
+        val background = when (categoryID) {
+            1 -> R.drawable.bakground_home
+            2 -> R.drawable.bathroom
+            3 -> R.drawable.kitchen
+            4 -> R.drawable.bakground_home
+            5 -> R.drawable.bakground_home
+            6 -> R.drawable.bakground_home
+            else -> R.drawable.blue_border
+        }
+
+        binding.background.setImageResource(background)
 
         db = NotesDataBaseHelper(this)
 
